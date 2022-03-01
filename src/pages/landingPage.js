@@ -5,7 +5,7 @@ export default function landingPage() {
   return (
     <div>
       <div className="d-flex flex-column bd-highlight">
-        <div class="p-2 bd-highlight">
+        <div className="p-2 bd-highlight">
           <img
             className="img-fluid mx-auto d-block"
             src={logoPokemon}

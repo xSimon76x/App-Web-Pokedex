@@ -1,0 +1,38 @@
+.flexOrder {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  /* justify-content: space-between; */
+  justify-content: center;
+  grid-gap: 2rem;
+  padding: 1vh;
+  height: auto;
+}
+
+.pokeCard {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 300px;
+  height: 350px;
+  background-color: #ffffff;
+  border-radius: 10%;
+}
+
+.pokeCard img {
+  width: 70%;
+  height: auto;
+  border-color: #000000;
+}
+
+.pokeCard h3 {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  height: 20vh;
+}
