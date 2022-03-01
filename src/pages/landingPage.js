@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import "../assets/css/landing.css";
 import logoPokemon from "../assets/images/logoPokemon.png";
 
@@ -14,9 +15,11 @@ export default function landingPage() {
           ></img>
         </div>
         <div className="p-2 bd-highlight d-grid gap-2 mx-auto">
-          <button type="button" className="btn btn-secondary">
-            START
-          </button>
+          <Link to="/pokegrid">
+            <button type="button" className="btn btn-secondary">
+              START
+            </button>
+          </Link>
         </div>
       </div>
     </div>

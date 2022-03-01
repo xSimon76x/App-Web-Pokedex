@@ -2,12 +2,14 @@
   display: flex;
   position: relative;
   flex-wrap: wrap;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 3fr));
   /* justify-content: space-between; */
   justify-content: center;
-  grid-gap: 2rem;
+  grid-gap: 3.7rem;
   padding: 1vh;
   height: auto;
+  padding-left: 16vh;
+  padding-right: 16vh;
 }
 
 .pokeCard {
@@ -16,8 +18,8 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  width: 300px;
-  height: 350px;
+  width: 200px;
+  height: 250px;
   background-color: #ffffff;
   border-radius: 10%;
 }

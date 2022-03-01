@@ -24,8 +24,6 @@ export default function PokemonCard() {
           </div>
         </>
       )}
-
-      {/* creacion de tarjeta para pokemon que se iterara en la page pokegrid.js  */}
     </div>
   );
 }
