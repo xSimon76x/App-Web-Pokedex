@@ -14,12 +14,15 @@ export default function landingPage() {
             alt="imgLogo"
           ></img>
         </div>
+        <div className="p-2 bd-highlight">
+          <h1>Pokedex</h1>
+        </div>
         <div className="p-2 bd-highlight d-grid gap-2 mx-auto">
-          <Link to="/pokegrid">
-            <button type="button" className="btn btn-secondary">
-              START
-            </button>
-          </Link>
+          {/* <Link to="/pokegrid"> */}
+          <button type="button" className="btn btn-secondary">
+            START
+          </button>
+          {/* </Link> */}
         </div>
       </div>
     </div>

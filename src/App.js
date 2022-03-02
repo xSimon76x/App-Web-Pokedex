@@ -9,18 +9,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <p style={{ display: "none" }}>learn react</p>
         <Router>
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/pokegrid" element={<PokeGrid />} />
             <Route exact path="/pokedex/:pokemon" element={<PokeDex />} />
-            <Route
-              exact
-              path="/pokedex"
-              render={() => {
-                return <PokeDex pokemon="all" />;
-              }}
-            />
+
           </Routes>
         </Router>
       </header>

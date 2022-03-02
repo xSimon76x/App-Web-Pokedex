@@ -8,63 +8,40 @@ import { PokeApi } from "../api/pokeApi.js";
 
 export default function InformationCard(props) {
   let counter = 1;
-
-  const { objPokemon } = props;
   const { routeAPI } = props;
+  const [cambiaURL, setCambiaURL] = useState("" + routeAPI + "?offset=0&limit=30")
+  const [currentPage, setCurrentPage] = useState(1)
+  const objPokemon = PokeApi(cambiaURL);
 
-
-
-  //let currentURL = { url: routeAPI }
-  const [cambiaURL, setCambiaURL] = useState("" + routeAPI + "?offset=20&limit=30")
-  const [quantityPokemons, setQuantityPokemons] = useState(20)
-
-  const objPokemon2 = PokeApi(cambiaURL);
-
-
-
-  if (objPokemon2) {
-    console.log("Al Cargar")
-    console.log(objPokemon2)
-  }
-
-  // const previewPage = () => {
-  //   if (currentPage > 0) {
-  //     setCurrentPage(currentPage - 6);
-  //   }
-  // }
-
-  const nextPage = (pk, url, obj) => {
-    const pokemons = pk + 20
-
-    const baseDirecction = url.substr(0, 33)
-    const direcction = "?offset="
-
-    setQuantityPokemons(pokemons)
-    setCambiaURL(baseDirecction + direcction + pokemons + "&limit=30")
-
-    // console.log(pk)
-    // console.log(url)
-    if (obj) {
-      console.log("boton Next")
-      console.log(obj)
+  const previewPage = (obj, page) => {
+    if (obj.previous !== null) {
+      setCambiaURL(obj.previous)
+      setCurrentPage(page - 1)
+    } else {
+      console.log("final page")
     }
-
-
-    //console.log(URL + "?offset=" + quantityPokemons + "&limit=30")
-    //console.log(this.currentURL)
-
-
-
   }
 
+  const nextPage = (obj, page) => {
+    if (obj.next !== null) {
+      setCambiaURL(obj.next)
+      setCurrentPage(page + 1)
+    } else {
+      console.log("first page")
+    }
+  }
 
 
 
   return (
     <div>
+      <div className="d-flex justify-content-center containerButtons">
+        <input type="text" className="form-control" placeholder="Search your pokemon"></input>
+      </div>
       <div className="d-flex justify-content-between containerButtons">
-        <button type="button" className="btn btn-secondary" >Preview</button>
-        <button type="button" className="btn btn-secondary" onClick={(() => nextPage(quantityPokemons, cambiaURL, objPokemon2))}>Next</button>
+        <button type="button" className="btn btn-secondary" onClick={(() => previewPage(objPokemon, currentPage))}>Preview</button>
+        <p style={{ color: "white" }}>{currentPage}</p>
+        <button type="button" className="btn btn-secondary" onClick={(() => nextPage(objPokemon, currentPage))}>Next</button>
       </div>
       <div className="flexOrder">
         {objPokemon ? (
