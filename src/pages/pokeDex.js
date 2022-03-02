@@ -60,8 +60,8 @@ export default function PokeDex() {
         </>
       ) : (
         <>
-          <div class="spinner-border text-info" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-border text-info" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </>
       )}

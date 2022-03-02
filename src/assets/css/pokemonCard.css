@@ -1,3 +1,11 @@
+.containerButtons {
+  display: flex;
+  position: relative;
+  padding: 1vh;
+  padding-left: 16vh;
+  padding-right: 16vh;
+}
+
 .flexOrder {
   display: flex;
   position: relative;
