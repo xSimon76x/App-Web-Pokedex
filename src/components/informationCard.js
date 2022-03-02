@@ -1,31 +1,35 @@
-import { PokeApi } from "../api/pokeApi";
+
+import ImgCard from "./imgCard.js";
+import { Link } from "react-router-dom";
 import "../assets/css/pokemonCard.css";
-import logoPokemon from "../assets/images/logoPokemon.png";
 
 export default function InformationCard(props) {
   let counter = 1;
   const { objPokemon } = props;
-  const data = PokeApi("https://pokeapi.co/api/v2/pokemon/1/");
-  if (data.data) {
-    //console.log(data.data.sprites.back_default);
-    console.log(objPokemon);
-  }
 
   return (
     <div>
       <div className="flexOrder">
         {objPokemon.results.map((ct, index) => (
           <div key={index}>
-            {objPokemon && data.data ? (
-              <div className="pokeCard">
-                <h3>#{counter++}</h3>
-                <img src={data.data.sprites.back_default}></img>
-                <h3>{objPokemon.results[index].name}</h3>
-              </div>
+            {/* aqui */}
+            {objPokemon ? (
+              <Link
+                to={"/pokedex/" + objPokemon.results[index].name}
+                style={{ textDecoration: "none" }}
+              >
+                <div className="pokeCard">
+                  <h3>#{counter++}</h3>
+                  <ImgCard namePokemon={objPokemon.results[index].name} />
+                  <h3>{objPokemon.results[index].name}</h3>
+                </div>
+              </Link>
             ) : (
               <>
                 <div className="pokeCard">
-                  <h3>Cargando</h3>
+                  <div class="spinner-border text-info" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
                 </div>
               </>
             )}

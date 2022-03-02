@@ -1,31 +1,70 @@
 import PresentationPokedex from "../components/presentationPokedex";
 import StatisticsPokedex from "../components/statisticsPokedex";
+import DescriptionCard from "../components/descriptionCard";
+import "../assets/css/pokedex.css";
+import { Link, useParams } from "react-router-dom";
+import { PokeApi } from "../api/pokeApi";
+
 export default function PokeDex() {
+  const { pokemon } = useParams();
+  const objPokemon = PokeApi("https://pokeapi.co/api/v2/pokemon/" + pokemon);
+  if (objPokemon) {
+    const cambio = objPokemon.sprites.other.home.front_default;
+    //console.log(objPokemon.id);
+  }
+
   return (
-    <div className="container-fluid">
-      <div className="d-flex flex-column bd-highlight mb-3">
-        <div className="p-2 bd-highlight">
-          {/* aqui abajo */}
-          <div className="d-flex bd-highlight">
-            <div className="p-2 flex-fill bd-highlight d-flex align-items-center justify-content-center">
-              Imagen
+    <div className="container">
+      {objPokemon ? (
+        <>
+          <div className="d-flex bd-highlight topTab">
+            <div className="p-2 flex-grow-1 bd-highlight">
+              <div className="d-flex justify-content-center ">
+                <h2>Pokedex registration completed.</h2>
+              </div>
             </div>
-            <div className="p-2 flex-fill bd-highlight">
-              <div className="d-flex flex-column bd-highlight mb-3">
-                <div className="p-2 bd-highlight">
-                  <PresentationPokedex />
+            <div className="p-2 bd-highlight ">
+              <Link to={"/pokegrid"}>
+                <button type="button" className="btn btn-secondary">
+                  Go back
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          <div className="d-flex flex-column bd-highlight mb-3 styleBackground">
+            <div className="p-2 bd-highlight">
+              <div className="d-flex bd-highlight">
+                <div className="p-2 flex-fill bd-highlight d-flex align-items-center justify-content-center">
+                  <img
+                    className="imgPokemon"
+                    src={objPokemon.sprites.other.home.front_default}
+                  ></img>
                 </div>
-                <div className="p-2 bd-highlight">
-                  <StatisticsPokedex />
+                <div className="p-2 flex-fill bd-highlight">
+                  <div className="d-flex flex-column bd-highlight mb-3">
+                    <div className="p-2 bd-highlight">
+                      <PresentationPokedex objPokemon={objPokemon} />
+                    </div>
+                    <div className="p-2 bd-highlight">
+                      <StatisticsPokedex objPokemon={objPokemon} />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div className="p-2 bd-highlight">
+              <DescriptionCard idPokemon={objPokemon.id} />
+            </div>
           </div>
-        </div>
-        <div className="p-2 bd-highlight">
-          <p>Descripcion</p>
-        </div>
-      </div>
+        </>
+      ) : (
+        <>
+          <div class="spinner-border text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </>
+      )}
     </div>
   );
 }

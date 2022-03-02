@@ -11,9 +11,16 @@ function App() {
       <header className="App-header">
         <Router>
           <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/pokegrid" element={<PokeGrid />} />
-            <Route path="/pokedex" element={<PokeDex />} />
+            <Route exact path="/" element={<LandingPage />} />
+            <Route exact path="/pokegrid" element={<PokeGrid />} />
+            <Route exact path="/pokedex/:pokemon" element={<PokeDex />} />
+            <Route
+              exact
+              path="/pokedex"
+              render={() => {
+                return <PokeDex pokemon="all" />;
+              }}
+            />
           </Routes>
         </Router>
       </header>

@@ -22,6 +22,7 @@
   height: 250px;
   background-color: #ffffff;
   border-radius: 10%;
+  box-shadow: 0 0 30px #619bb3;
 }
 
 .pokeCard img {

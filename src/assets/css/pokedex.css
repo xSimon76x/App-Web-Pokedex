@@ -1,0 +1,38 @@
+.topTab {
+  background-color: #868775 !important;
+  border-style: inset;
+  border-bottom: 3px solid #000000 !important ;
+}
+
+.topTab h2 {
+  color: #000000;
+}
+
+.styleBackground {
+  background-color: #ebffe5 !important;
+}
+
+.img-icon {
+  width: 4%;
+  height: 4%;
+}
+
+.flex-presentation {
+  display: flex;
+  position: relative;
+  justify-content: start;
+  align-items: center;
+}
+.flex-presentation p {
+  margin-bottom: 0rem !important;
+  padding-left: 15px;
+}
+
+p {
+  color: #000000;
+}
+
+.imgPokemon {
+  width: 30vh;
+  height: auto;
+}
