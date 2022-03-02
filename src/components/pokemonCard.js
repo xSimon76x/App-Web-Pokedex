@@ -4,13 +4,13 @@ import InformationCard from "./informationCard";
 import { useState } from "react";
 
 export default function PokemonCard() {
-  const routeAPI = "https://pokeapi.co/api/v2/pokemon?limit=100&offset=200/";
+  const routeAPI = "https://pokeapi.co/api/v2/pokemon";
   const data = PokeApi(routeAPI);
 
   return (
     <div className="container-fluid">
       {data ? (
-        <InformationCard objPokemon={data} />
+        <InformationCard objPokemon={data} routeAPI={routeAPI} />
       ) : (
         <>
           <div>
