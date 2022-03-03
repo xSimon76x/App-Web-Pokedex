@@ -1,6 +1,6 @@
 import { PokeApi } from "../api/pokeApi";
 
-export default function DescriptionCard(props) {
+export default function DescriptionPokedex(props) {
 
     const { idPokemon } = props;
     const listDescriptionPokemon = PokeApi("https://pokeapi.co/api/v2/pokemon-species/" + idPokemon);

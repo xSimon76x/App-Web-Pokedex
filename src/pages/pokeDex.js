@@ -1,6 +1,6 @@
 import PresentationPokedex from "../components/presentationPokedex";
 import StatisticsPokedex from "../components/statisticsPokedex";
-import DescriptionCard from "../components/descriptionCard";
+import DescriptionPokedex from "../components/descriptionPokedex";
 import "../assets/css/pokedex.css";
 import { Link, useParams } from "react-router-dom";
 import { PokeApi } from "../api/pokeApi";
@@ -54,7 +54,7 @@ export default function PokeDex() {
               </div>
             </div>
             <div className="p-2 bd-highlight">
-              <DescriptionCard idPokemon={objPokemon.id} />
+              <DescriptionPokedex idPokemon={objPokemon.id} />
             </div>
           </div>
         </>
