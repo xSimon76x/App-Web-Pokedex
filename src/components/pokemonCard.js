@@ -9,6 +9,7 @@ export default function PokemonCard() {
 
   return (
     <div className="container-fluid">
+
       {data ? (
         <InformationCard objPokemon={data} routeAPI={routeAPI} />
       ) : (

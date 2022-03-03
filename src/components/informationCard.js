@@ -2,7 +2,7 @@
 import ImgCard from "./imgCard.js";
 import { Link } from "react-router-dom";
 import "../assets/css/pokemonCard.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PokeApi } from "../api/pokeApi.js";
 import heart from "../assets/images/heart.png"
 
@@ -12,24 +12,60 @@ export default function InformationCard(props) {
   const { routeAPI } = props;
   const [cambiaURL, setCambiaURL] = useState("" + routeAPI + "?offset=0&limit=30")
   const [currentPage, setCurrentPage] = useState(1)
+  const [currentPokemon, setCurrentPokemon] = useState("")
+
   const objPokemon = PokeApi(cambiaURL);
 
   const previewPage = (obj, page) => {
     if (obj.previous !== null) {
-      setCambiaURL(obj.previous)
-      setCurrentPage(page - 1)
+      setCambiaURL(obj.previous);
+      setCurrentPage(page - 1);
     } else {
-      console.log("final page")
+      console.log("final page");
     }
   }
 
   const nextPage = (obj, page) => {
     if (obj.next !== null) {
-      setCambiaURL(obj.next)
-      setCurrentPage(page + 1)
+      setCambiaURL(obj.next);
+      setCurrentPage(page + 1);
     } else {
-      console.log("first page")
+      console.log("first page");
     }
+  }
+
+
+
+  const searchName = (objPokemon) => {
+    let searchBox = document.getElementById("ip-Search").value;
+
+    let filterPokemon = new Array();
+
+
+    (searchBox !== "" ? (
+
+      objPokemon.results.map((ct, index) => (
+        ((objPokemon.results[index].name).includes(searchBox) ? (
+
+
+
+          filterPokemon.push({
+            id: (objPokemon.results[index].url).slice(34, 36).replace("/", ""),
+            name: objPokemon.results[index].name,
+          })
+
+        ) : (
+          false
+        ))
+      ))
+    ) : (
+      console.log("nada")
+    ))
+    console.log(filterPokemon)
+    setCurrentPokemon(filterPokemon)
+    console.log(currentPokemon)
+
+
   }
 
 
@@ -37,7 +73,7 @@ export default function InformationCard(props) {
   return (
     <div>
       <div className="d-flex justify-content-center containerButtons">
-        <input type="text" className="form-control" placeholder="Search your pokemon"></input>
+        <input id="ip-Search" type="text" className="form-control" placeholder="Search your pokemon" onChange={(() => searchName(objPokemon))}></input>
       </div>
       <div className="d-flex justify-content-between containerButtons">
         <button type="button" className="btn btn-secondary" onClick={(() => previewPage(objPokemon, currentPage))}>Preview</button>
