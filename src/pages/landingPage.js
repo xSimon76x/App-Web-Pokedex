@@ -1,8 +1,18 @@
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
-import "../assets/css/landing.css";
+import { Link, Router, Routes } from "react-router-dom";
 import logoPokemon from "../assets/images/logoPokemon.png";
+import PokeGrid from "./pokeGrid"
+import "../assets/css/landing.css";
 
-export default function landingPage() {
+
+
+export default function LandingPage() {
+
+  const login = () => {
+    console.log("click");
+    return window.location.host + "/pokegrid"
+  }
+
+
   return (
     <div>
       <div className="d-flex flex-column bd-highlight">
@@ -18,11 +28,18 @@ export default function landingPage() {
           <h1>Pokedex</h1>
         </div>
         <div className="p-2 bd-highlight d-grid gap-2 mx-auto">
+
+
           {/* <Link to="/pokegrid"> */}
-          <button type="button" className="btn btn-secondary">
+          <button type="button" className="btn btn-secondary" onClick={(() => login())}>
+
             START
+
+
           </button>
           {/* </Link> */}
+
+
         </div>
       </div>
     </div>

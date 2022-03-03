@@ -15,7 +15,9 @@ function App() {
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/pokegrid" element={<PokeGrid />} />
             <Route exact path="/pokedex/:pokemon" element={<PokeDex />} />
-
+            <Route>
+              <h1>Error 404</h1>
+            </Route>
           </Routes>
         </Router>
       </header>
