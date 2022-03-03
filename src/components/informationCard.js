@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../assets/css/pokemonCard.css";
 import { useState } from "react";
 import { PokeApi } from "../api/pokeApi.js";
+import heart from "../assets/images/heart.png"
 
 
 export default function InformationCard(props) {
@@ -49,16 +50,22 @@ export default function InformationCard(props) {
             <div key={index}>
               {/* aqui */}
               {objPokemon ? (
-                <Link
-                  to={"/pokedex/" + objPokemon.results[index].name}
-                  style={{ textDecoration: "none" }}
-                >
-                  <div className="pokeCard">
+
+                <div className="pokeCard">
+                  <div className="d-flex justify-content-end align-content-center">
+                    <input type="checkbox" className="btn-favorite"></input>
+
+                  </div>
+                  <Link
+                    to={"/pokedex/" + objPokemon.results[index].name}
+                    style={{ textDecoration: "none" }}
+                  >
                     <h3>#{counter++}</h3>
                     <ImgCard namePokemon={objPokemon.results[index].name} />
                     <h3>{objPokemon.results[index].name}</h3>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
+
               ) : (
                 <>
                   <div className="pokeCard">
@@ -73,6 +80,6 @@ export default function InformationCard(props) {
           false
         )}
       </div>
-    </div>
+    </div >
   );
 }

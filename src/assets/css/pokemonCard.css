@@ -23,11 +23,11 @@
 .pokeCard {
   display: flex;
   position: relative;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   flex-direction: column;
   width: 200px;
-  height: 250px;
+  height: 270px;
   background-color: #ffffff;
   border-radius: 10%;
   box-shadow: 0 0 30px #619bb3;
@@ -45,5 +45,18 @@
   justify-content: center;
   align-items: center;
   color: #000000;
-  height: 20vh;
+  /* height: 20vh; */
+}
+
+.btn-favorite {
+  background-image: url("../images/heart.png");
+  width: 18% !important;
+  height: auto;
+  padding-top: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.btn-favorite:checked {
+  background-color: #000000;
 }
