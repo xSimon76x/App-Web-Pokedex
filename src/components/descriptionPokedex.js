@@ -13,7 +13,7 @@ export default function DescriptionPokedex(props) {
                     <div key={index}>
                         {listDescriptionPokemon.flavor_text_entries[index].version.name == "platinum" ? (
                             <>
-                                <p>{listDescriptionPokemon.flavor_text_entries[index].flavor_text}</p>
+                                <p id="description">{listDescriptionPokemon.flavor_text_entries[index].flavor_text}</p>
                             </>
 
                         ) : (

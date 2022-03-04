@@ -1,18 +1,14 @@
 
-
-import { Link } from "react-router-dom";
 import "../assets/css/pokemonCard.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PokeApi } from "../api/pokeApi.js";
-import heart from "../assets/images/heart.png"
-import FilterPokemonCard from "./filterPokemonCard.js";
 
+import FilterPokemonCard from "./filterPokemonCard.js";
 
 export default function InformationCard(props) {
 
-
-  const { routeAPI } = props;
-  const { objPokemon } = props;
+  const { objPokemon, routeAPI, counterMaxPokemons } = props;
+  const allPokemons = PokeApi(routeAPI + "?limit=" + 600)
   const [currentPokemon, setCurrentPokemon] = useState({ state: false, data: null })
 
   const searchName = (objPokemon) => {
@@ -36,24 +32,16 @@ export default function InformationCard(props) {
     }
   }
 
-
   return (
     <div>
-      <div className="d-flex justify-content-center containerButtons">
-        <input id="ip-Search" type="text" className="form-control" placeholder="Search your pokemon" onChange={(() => searchName(objPokemon))}></input>
+      <div className="d-flex justify-content-center py-4 px-5">
+        <input id="ip-Search" type="text" className="form-control" placeholder="Search your pokemon" onChange={(() => searchName(allPokemons))}></input>
       </div>
-      <div className="flexOrder">
+      <div>
         {objPokemon && !currentPokemon.data ? (
-          <FilterPokemonCard objPokemon={objPokemon.results} />
+          <FilterPokemonCard objPokemon={objPokemon.results} routeAPI={routeAPI} />
         ) : (
-
-          <FilterPokemonCard objPokemon={currentPokemon.data} />
-          // <div className="pokeCard">
-          //   <div className="spinner-border text-info" role="status">
-          //     <span className="visually-hidden">Loading...</span>
-          //   </div>
-          // </div>
-
+          <FilterPokemonCard objPokemon={currentPokemon.data} routeAPI={routeAPI} />
         )}
       </div>
     </div >

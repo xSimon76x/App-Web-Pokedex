@@ -1,20 +1,21 @@
 .containerButtons {
   display: flex;
   position: relative;
+
   padding: 1vh;
   padding-left: 16vh;
   padding-right: 16vh;
 }
 
 .flexOrder {
-  display: flex;
+  display: grid;
   position: relative;
   flex-wrap: wrap;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 3fr));
-  /* justify-content: space-between; */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
   justify-content: center;
-  grid-gap: 3.7rem;
+  grid-gap: 3rem;
   padding: 1vh;
+  margin: 3rem 0;
   height: auto;
   padding-left: 16vh;
   padding-right: 16vh;
@@ -23,17 +24,20 @@
 .pokeCard {
   display: flex;
   position: relative;
-  /* justify-content: space-between; */
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-width: auto;
+  min-height: auto;
   width: 200px;
-  height: 270px;
+  height: 250px;
   background-color: #ffffff;
   border-radius: 10%;
   box-shadow: 0 0 30px #619bb3;
 }
 
 .pokeCard img {
+  min-width: auto;
   width: 70%;
   height: auto;
   border-color: #000000;
