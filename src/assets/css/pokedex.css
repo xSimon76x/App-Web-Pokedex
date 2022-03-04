@@ -20,7 +20,7 @@
 .flex-presentation {
   display: flex;
   position: relative;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 }
 .flex-presentation p {

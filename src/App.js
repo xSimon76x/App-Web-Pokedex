@@ -13,6 +13,9 @@ function App() {
 
   const [stateButton, setStateButton] = useState(false);
 
+
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -26,10 +29,10 @@ function App() {
             <Route exact path="/pokedex/:pokemon" element={<PokeDex />} />
 
           </Routes>
-          < Link to="/pokegrid" >
+          < Link to="/pokegrid" style={{ textDecoration: "none" }}>
             {stateButton == false ? (
 
-              <div className="p-2 bd-highlight d-grid gap-2 mx-auto">
+              <div className="p-2 bd-highlight d-grid gap-2 mx-auto" >
                 <button type="button" className="btn btn-secondary" style={{ width: "20vw" }} onClick={(() => setStateButton(true))}>
                   START
                 </button>
@@ -40,8 +43,6 @@ function App() {
             )}
 
           </Link >
-
-
         </Router>
       </header>
     </div>

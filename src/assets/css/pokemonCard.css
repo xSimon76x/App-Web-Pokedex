@@ -36,7 +36,7 @@
   box-shadow: 0 0 30px #619bb3;
 }
 
-.pokeCard img {
+.pokeCard .imgPokemon {
   min-width: auto;
   width: 70%;
   height: auto;
@@ -52,7 +52,7 @@
   /* height: 20vh; */
 }
 
-.btn-favorite {
+/* .btn-favorite {
   background-image: url("../images/heart.png");
   width: 18% !important;
   height: auto;
@@ -63,4 +63,10 @@
 
 .btn-favorite:checked {
   background-color: #000000;
+} */
+.containerImageHeart {
+  display: flex;
+  position: relative;
+  align-self: end !important;
+  padding-right: 20px;
 }

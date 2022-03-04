@@ -10,7 +10,7 @@ export default function ImgCard(props) {
 
                 <>
 
-                    <img src={pokemonSpecies.sprites.other.home.front_default}></img>
+                    <img className="imgPokemon" src={pokemonSpecies.sprites.other.home.front_default}></img>
 
                 </>
             ) : (

@@ -6,6 +6,7 @@ export default function pokeGrid() {
   const routeAPI = "https://pokeapi.co/api/v2/pokemon";
   const data = PokeApi(routeAPI);
 
+
   return (
     <div className="container-fluid">
       <div className="d-flex flex-column bd-highlight mb-3">

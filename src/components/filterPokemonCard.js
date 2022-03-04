@@ -1,12 +1,46 @@
 import ImgCard from "./imgCard.js";
 import { Link } from "react-router-dom";
 import "../assets/css/pokemonCard.css";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
+
+
 
 export default function FilterPokemonCard(props) {
-    let counter = 1;
+
 
     const { objPokemon } = props
+    const [objetoPokemon, setObjetoPokemon] = useState(objPokemon)
+    const [favorite, setFavorite] = useState([])
+    const redHeart = "❤️"
+    const whiteHeart = "🤍"
+    let isFavorite = []
+
+    console.log(props)
+
+    const btnFavorite = (id, namePokemon, isFavorite) => {
+        let content = document.getElementById(id).textContent
+        let ind = 0
+        if (content == "🤍") {
+            document.getElementById(id).textContent = "❤️"
+            isFavorite.push({ id: id, name: namePokemon })
+            console.log(isFavorite)
+        } else {
+            document.getElementById(id).textContent = "🤍"
+            isFavorite.map((ct, index) => (
+                ((isFavorite[index].name).includes(namePokemon) ? (
+                    isFavorite.splice(index, 1),
+                    console.log(isFavorite)
+                ) : (
+                    false
+                ))
+            ))
+        }
+    }
+
+    if (favorite.name) {
+        console.log(favorite)
+    }
 
     return (<div className="flexOrder">
         {objPokemon ? (
@@ -14,8 +48,8 @@ export default function FilterPokemonCard(props) {
                 <div key={index} className="d-flex justify-content-center">
                     {objPokemon ? (
                         <div className="pokeCard">
-                            <div className="d-flex justify-content-end align-content-center">
-                                <input type="checkbox" className="btn-favorite" ></input>
+                            <div className="containerImageHeart">
+                                <p id={"icoN" + objPokemon[index].name} onClick={(() => btnFavorite("icoN" + objPokemon[index].name, objPokemon[index].name, isFavorite))}>{whiteHeart}</p>
                             </div>
                             <Link
                                 to={"/pokedex/" + objPokemon[index].name}

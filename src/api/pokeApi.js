@@ -12,6 +12,7 @@ export const PokeApi = (url) => {
     axios
       .get(url)
       .then((data) => {
+
         setApiResult(data.data);
       })
       .catch((error) => {
