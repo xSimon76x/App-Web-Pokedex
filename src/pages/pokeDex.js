@@ -2,7 +2,7 @@ import PresentationPokedex from "../components/presentationPokedex";
 import StatisticsPokedex from "../components/statisticsPokedex";
 import DescriptionPokedex from "../components/descriptionPokedex";
 import "../assets/css/pokedex.css";
-import { Link, Router, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PokeApi } from "../api/pokeApi";
 
 export default function PokeDex() {

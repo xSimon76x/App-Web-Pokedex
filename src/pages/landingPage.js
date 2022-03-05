@@ -19,9 +19,7 @@ export default function LandingPage(props) {
         </div>
         <div className="p-2 bd-highlight">
           <h1>Pokedex</h1>
-
         </div>
-
       </div>
     </div>
   </>

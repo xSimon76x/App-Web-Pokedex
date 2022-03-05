@@ -8,7 +8,7 @@ import FilterPokemonCard from "./filterPokemonCard.js";
 
 export default function InformationCard(props) {
 
-  const { objPokemon, routeAPI, counterMaxPokemons } = props;
+  const { objPokemon, routeAPI } = props;
   const allPokemons = PokeApi(routeAPI + "?limit=" + 600)
   const [currentPokemon, setCurrentPokemon] = useState({ state: false, data: null })
   const [listFavoritePokemon, setListFavoritePokemon] = useState(null);

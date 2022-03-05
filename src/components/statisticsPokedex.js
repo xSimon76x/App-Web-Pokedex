@@ -1,7 +1,7 @@
 export default function StatisticsPokedex(props) {
   const { objPokemon } = props;
 
-  const typesPokemon = objPokemon.types;
+
 
   return (
     <div className="d-flex flex-column bd-highlight mb-3">
