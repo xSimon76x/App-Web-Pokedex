@@ -30,7 +30,7 @@ function App() {
 
           </Routes>
           < Link to="/pokegrid" style={{ textDecoration: "none" }}>
-            {stateButton == false ? (
+            {!stateButton ? (
 
               <div className="p-2 bd-highlight d-grid gap-2 mx-auto" >
                 <button type="button" className="btn btn-secondary" style={{ width: "20vw" }} onClick={(() => setStateButton(true))}>

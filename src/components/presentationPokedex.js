@@ -10,7 +10,7 @@ export default function LeftContainerPokedex(props) {
     <div className="d-flex flex-column bd-highlight mb-3">
       <div className="p-2 bd-highlight">
         <div className="flex-presentation ">
-          <img className="img-icon" src={pokeball}></img>
+          <img className="img-icon" src={pokeball} alt="imgPokeball"></img>
           <p>{objPokemon.id}</p>
           <p>{objPokemon.name}</p>
         </div>

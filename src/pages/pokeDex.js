@@ -36,6 +36,7 @@ export default function PokeDex() {
                   <img
                     className="imgPokemon"
                     src={objPokemon.sprites.other.home.front_default}
+                    alt="imgPokemonDex"
                   ></img>
                 </div>
                 <div className="p-2 flex-fill bd-highlight">

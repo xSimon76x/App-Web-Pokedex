@@ -17,7 +17,7 @@ export default function InformationCard(props) {
 
   const searchName = (objPokemon) => {
     let searchBox = document.getElementById("ip-Search").value;
-    let filterPokemon = new Array();
+    let filterPokemon = [];
 
     if (searchBox !== "") {
       objPokemon.results.map((ct, index) => (
@@ -40,7 +40,7 @@ export default function InformationCard(props) {
   function btnFavorite(id, namePokemon, isFavorite) {
     let content = document.getElementById(id).textContent;
 
-    if (content == "🤍") {
+    if (content === "🤍") {
       document.getElementById(id).textContent = "❤️"
       isFavorite.push({ id: id, name: namePokemon })
       return setListFavoritePokemon(isFavorite);
@@ -67,13 +67,13 @@ export default function InformationCard(props) {
         <div className="p-2 w-100 bd-highlight"><input id="ip-Search" type="text" className="form-control" placeholder="Search your pokemon" onChange={(() => searchName(allPokemons))}></input></div>
         <div className="d-flex p-2 flex-shrink-1 bd-highlight align-content-center">
           <button type="button" className="btn btn-primary" onClick={(() => setBtnPressFavorites(true))}>
-            <img src={heart} style={{ width: "30px", height: "25px" }}></img>
+            <img src={heart} style={{ width: "30px", height: "25px" }} alt="imgHeart"></img>
           </button>
         </div>
       </div>
       <div>
         {objPokemon && !currentPokemon.data ? (
-          btnPressFavorites == true ? (
+          btnPressFavorites === true ? (
             <FilterPokemonCard objPokemon={listFavoritePokemon} routeAPI={routeAPI} btnFavorite={btnFavorite} />
           ) : (
             <FilterPokemonCard objPokemon={objPokemon.results} routeAPI={routeAPI} btnFavorite={btnFavorite} />

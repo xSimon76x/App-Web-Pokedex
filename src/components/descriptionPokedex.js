@@ -11,7 +11,7 @@ export default function DescriptionPokedex(props) {
             <>
                 {listDescriptionPokemon.flavor_text_entries.map((ct, index) => (
                     <div key={index}>
-                        {listDescriptionPokemon.flavor_text_entries[index].version.name == "platinum" ? (
+                        {listDescriptionPokemon.flavor_text_entries[index].version.name === "platinum" ? (
                             <>
                                 <p id="description">{listDescriptionPokemon.flavor_text_entries[index].flavor_text}</p>
                             </>
