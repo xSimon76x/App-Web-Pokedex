@@ -4,6 +4,7 @@ import DescriptionPokedex from "../components/descriptionPokedex";
 import "../assets/css/pokedex.css";
 import { Link, useParams } from "react-router-dom";
 import { PokeApi } from "../api/pokeApi";
+import pokeLoadingPokemon from "../assets/images/pokeballLoadingPokemon.gif";
 
 export default function PokeDex() {
   const { pokemon } = useParams();
@@ -18,13 +19,11 @@ export default function PokeDex() {
           </div>
         </div>
         <div className="p-2 bd-highlight ">
-
           <Link to={"/pokegrid"}>
             <button type="button" className="btn btn-secondary">
               Go back
             </button>
           </Link>
-
         </div>
       </div>
       {objPokemon ? (
@@ -58,8 +57,11 @@ export default function PokeDex() {
         </>
       ) : (
         <>
-          <div className="spinner-border text-info" role="status">
+          {/* <div className="spinner-border text-info" role="status">
             <span className="visually-hidden">Loading...</span>
+          </div> */}
+          <div>
+            <img src={pokeLoadingPokemon}></img>
           </div>
         </>
       )}

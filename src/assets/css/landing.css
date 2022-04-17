@@ -1,0 +1,17 @@
+.fondoWallpaper {
+  display: flex;
+  position: relative;
+  background-image: url("../../assets/images/fondo_landing.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.containerInformation {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
